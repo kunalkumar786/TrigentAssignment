@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -12,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 
 import com.example.trigentassignment.adapter.MyFeedAdapter
+import com.example.trigentassignment.database.DatabaseHandler
 import com.example.trigentassignment.model.FeedModel
+import com.example.trigentassignment.util.Utility
 import com.example.trigentassignment.view_model.FeedViewModel
 import java.util.*
 
@@ -36,13 +39,30 @@ class MainActivity : AppCompatActivity() {
         feed_list=findViewById(R.id.feed_list)
 
         feedViewModel = ViewModelProviders.of(this)[FeedViewModel::class.java]
-        feedViewModel?.getFeedData()
-            ?.observe(this, object : Observer<ArrayList<FeedModel>> {
-                @SuppressLint("WrongConstant")
-                override fun onChanged(feedModels: ArrayList<FeedModel>) {
-                    loadData(feedModels)
-                }
-            })
+        val databaseHandler= DatabaseHandler(this)
+        val feedData=databaseHandler.viewFeed()
+
+        val utility=Utility(this)
+
+
+        if(utility.hasActiveInternetConnection(this)&&feedData.size==0) {
+            feedViewModel?.getFeedData()
+                ?.observe(this, object : Observer<ArrayList<FeedModel>> {
+                    @SuppressLint("WrongConstant")
+                    override fun onChanged(feedModels: ArrayList<FeedModel>) {
+                        loadData(feedModels)
+                    }
+                })
+
+        }else{
+            if(feedData!=null&&feedData.size>0){
+                loadData(feedData as ArrayList<FeedModel>)
+                
+            }else{
+            Toast.makeText(this,"No data Available",Toast.LENGTH_LONG).show()
+            }
+        }
+
         pullToRefresh?.setOnRefreshListener {
             refreshData()
             pullToRefresh?.isRefreshing = false

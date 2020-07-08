@@ -5,6 +5,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import com.example.trigentassignment.database.DatabaseHandler
 import com.example.trigentassignment.model.FeedModel
 import com.example.trigentassignment.network.NetworkClient
 import okhttp3.ResponseBody
@@ -17,7 +18,7 @@ import java.util.*
 class FeedViewModel(application: Application) : AndroidViewModel(application) {
     private val TAG:String="FeedViewModel"
      var feed_data: MutableLiveData<ArrayList<FeedModel>>? = null
-
+    val databaseHandler= DatabaseHandler(application)
     fun FeedViewModel(application: Application) {
     }
 
@@ -56,6 +57,8 @@ class FeedViewModel(application: Application) : AndroidViewModel(application) {
                                 feed_result.add(FeedModel(result.getString("imageHref"),result.getString("title"),
                                     result.getString("description"),jsonObject.getString("title")))
                             //}
+                        databaseHandler.addFeeds(FeedModel(result.getString("imageHref"),result.getString("title"),
+                            result.getString("description"),jsonObject.getString("title")))
                         }
                         feed_data?.value = feed_result
                         if(feed_result.size>0) {
