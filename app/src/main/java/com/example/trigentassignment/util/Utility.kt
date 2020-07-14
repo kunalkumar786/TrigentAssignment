@@ -1,12 +1,10 @@
 package com.example.trigentassignment.util
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.net.ConnectivityManager
 import android.util.Log
-import androidx.core.content.ContextCompat.getSystemService
-import java.io.IOException
-import java.net.HttpURLConnection
-import java.net.URL
 
 
 class Utility(context:Context) {
@@ -27,6 +25,14 @@ class Utility(context:Context) {
         val activeNetworkInfo = connectivityManager!!.activeNetworkInfo
         return activeNetworkInfo != null
     }
-
+fun showNetworkDialog(){
+    val builder = AlertDialog.Builder(context)
+    builder.setTitle("No internet Connection")
+    builder.setMessage("Please turn on internet connection")
+    builder.setNegativeButton("close",
+        DialogInterface.OnClickListener { dialog, which -> dialog.dismiss() })
+    val alertDialog: AlertDialog = builder.create()
+    alertDialog.show()
+}
 
 }

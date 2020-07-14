@@ -18,13 +18,7 @@ class NetworkClient private constructor() {
 
     interface APIClient {
         @GET("2iodh4vg0eortkl/facts.json")
-        fun callAPIExecutor(/*@Url*//*@Query("param")*//* jsonParam: String?*/): Call<ResponseBody>
-
-        @POST("2iodh4vg0eortkl/facts.json")
-        fun callAPI(@Query("param") jsonParam: String?): Call<FeedModel?>?
-
-        @GET
-        fun sendRequest(@Url fullURL: String?): Call<ResponseBody?>?
+        fun callAPIExecutor(): Call<ResponseBody>
     }
 
      object NetworkObject {
@@ -37,19 +31,6 @@ class NetworkClient private constructor() {
              }
              return networkClient as NetworkClient
          }
-
-
-/*
-         val networkClientInstance: NetworkClient?
-          get() {
-                if (networkClient == null) {
-                    networkClient = NetworkClient()
-                    initializeRetrofitLib()
-                }
-                return networkClient
-            }
-*/
-
          private fun initializeRetrofitLib() {
              val apiBaseURL = "https://dl.dropboxusercontent.com/s/"
              val gson = GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").create()

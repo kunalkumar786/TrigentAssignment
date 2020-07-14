@@ -1,0 +1,111 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">20dp</dimen>
+    <dimen name="activity_vertical_margin">20dp</dimen>
+
+    <dimen name="commonScreenHeaderHeight">75dp</dimen>
+    <dimen name="commonScreenHeaderBelowHeight">65dp</dimen>
+    <dimen name="commonScreenHeaderBelowHeight2">110dp</dimen>
+
+    <dimen name="commonHeaderLogoSize">60dp</dimen>
+    <dimen name="common_HeaderTextSize">16.5sp</dimen>
+    <dimen name="common_HeaderSeperatorHeight">40dp</dimen>
+    <dimen name="common_HeaderSeperatorWidth">1dp</dimen>
+
+    <dimen name="common_ParentPadding">24dp</dimen>
+    <dimen name="common_ParentPadding2">19dp</dimen>
+    <dimen name="common_LabelSize_21">25sp</dimen>
+    <dimen name="common_LabelSize">23sp</dimen>
+    <dimen name="common_LabelSize1">19sp</dimen>
+    <dimen name="common_LabelSize2">19.5sp</dimen>
+    <dimen name="common_LabelSize3">16.5sp</dimen>
+    <dimen name="common_LabelSize4">18.5sp</dimen>
+    <dimen name="common_LabelSize5">21sp</dimen>
+    <dimen name="common_LabelSize6">15sp</dimen>
+    <dimen name="common_LabelSize7">18sp</dimen>
+    <dimen name="common_LabelSize20">22sp</dimen>
+    <dimen name="common_TopUpLabelSize">16sp</dimen>
+    <dimen name="common_TopUpProductPadding">7dp</dimen>
+    <dimen name="common_MarginLeft">10dp</dimen>
+    <dimen name="common_tableStripPadding">6dp</dimen>
+    <dimen name="common_customTopUpGBPSize">19sp</dimen>
+
+    <dimen name="common_menuheaderPadding">12dp</dimen>
+
+
+    <dimen name="common_MarginBtwFields">15dp</dimen>
+    <dimen name="common_MarginBtwFields1">10dp</dimen>
+    <dimen name="common_MarginLeftRight">13dp</dimen>
+    <dimen name="common_MarginFromTop">19dp</dimen>
+    <dimen name="common_MarginFromTop2">30dp</dimen>
+    <dimen name="common_MarginFromTop3">7dp</dimen>
+    <dimen name="common_MarginFromTopButton">60dp</dimen>
+    <dimen name="common_MarginFromBottomButton">90dp</dimen>
+    <dimen name="common_MarginFromBottomButton2">75dp</dimen>
+    <dimen name="common_MarginFromBottomButton3">110dp</dimen>
+
+    <dimen name="common_spinnerLeftPadding">7dp</dimen>
+    <dimen name="common_spinnerRightPadding">0dp</dimen>
+
+    <dimen name="common_tableLabelHeaderHeight">42dp</dimen>
+
+    <dimen name="common_MarginFromLeftEditText">7dp</dimen>
+    <dimen name="margin30">35dp</dimen>
+
+
+    <!-- DIMENSIONS OF ORDER DETAILS -->
+    <dimen name="orderDetail_ReceiptValueSize">14sp</dimen>
+    <dimen name="orderDetail_ReceiptLabelSize">15sp</dimen>
+    <dimen name="orderDetail_MarginLeft">0dp</dimen>
+
+
+    <!-- DIMENSIONS OF ORDER DETAILS -->
+    <dimen name="editProfile_AddressHeight">75dp</dimen>
+
+    <!-- DIMENSIONS OF FAVOURITE SCREEN DETAILS -->
+    <dimen name="tableMarginTop">17dp</dimen>
+    <dimen name="tableHeaderHeight">60dp</dimen>
+    <dimen name="cartScreenTableHeaderHeight">73dp</dimen>
+    <dimen name="tableHeaderTextSize">15.5sp</dimen>
+    <dimen name="tableHeaderTextSize1">15sp</dimen>
+    <dimen name="tableHeaderTextSize2">14sp</dimen>
+    <dimen name="tableLabelSeperator">0.5dp</dimen>
+    <dimen name="favouriteTextValueSize">12sp</dimen>
+    <dimen name="favouriteTextValueSize2">11sp</dimen>
+
+    <!-- DIMENSIONS OF MY CART DETAILS -->
+
+    <dimen name="mycart_rowLabelSize">15sp</dimen>
+    <dimen name="mycart_rowValueSize">14.5sp</dimen>
+    <dimen name="mycart_NotificationMargin">8dp</dimen>
+
+    <!-- DIMENSIONS OF MY RECEIPT DETAILS -->
+    <dimen name="receipt_rowLabelSize">14sp</dimen>
+
+    <dimen name="fb_margin_override_top">14dp</dimen>
+    <dimen name="fb_margin_override_bottom">14dp</dimen>
+    <!-- The next value changes the margin between the FB icon and the left border: -->
+    <dimen name="fb_margin_override_lr">12dp</dimen>
+    <!-- The next value changes the margin between the FB icon and the login text: -->
+    <dimen name="fb_margin_override_textpadding">19dp</dimen>
+
+    <dimen name="table_items_margin_top_bottom">12dp</dimen>
+
+    <!--RECEIPT SCREEN DIMENSIONS-->
+    <dimen name="receiptParentPadding">35dp</dimen>
+    <dimen name="receiptMarginTop">28dp</dimen>
+    <dimen name="receiptMarginTop0">15dp</dimen>
+    <dimen name="receiptMarginTop1">36dp</dimen>
+    <dimen name="receiptMarginTop2">150dp</dimen>
+    <dimen name="receiptMarginTop3">80dp</dimen>
+    <dimen name="receiptLabelSize">31sp</dimen>
+    <dimen name="receiptLabelSize0">33sp</dimen>
+    <dimen name="receiptLabelSize1">27sp</dimen>
+    <dimen name="receiptMobileNumberSize">36sp</dimen>
+
+    <dimen name="marginBottom10">12dp</dimen>
+    <dimen name="marginBottom15">17dp</dimen>
+    <dimen name="marginBottom20">22dp</dimen>
+
+</resources>

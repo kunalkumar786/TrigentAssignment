@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">TrigentAssignment</string>
     <string name="description">Description</string>
+    <string name="feed_image">Feed Image</string>
+    <string name="iv_next">Next</string>
 
 </resources>

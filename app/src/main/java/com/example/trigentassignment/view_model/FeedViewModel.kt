@@ -5,7 +5,9 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.example.trigentassignment.database.DatabaseHandler
+import com.anupcowkur.reservoir.Reservoir
+import com.anupcowkur.reservoir.ReservoirPutCallback
+
 import com.example.trigentassignment.model.FeedModel
 import com.example.trigentassignment.network.NetworkClient
 import okhttp3.ResponseBody
@@ -13,14 +15,14 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.IOException
 import java.util.*
-
+ const val Cache_Key="FeedData"
 class FeedViewModel(application: Application) : AndroidViewModel(application) {
     private val TAG:String="FeedViewModel"
      var feed_data: MutableLiveData<ArrayList<FeedModel>>? = null
-    val databaseHandler= DatabaseHandler(application)
-    fun FeedViewModel(application: Application) {
-    }
+
+
 
     fun getFeedData(): MutableLiveData<ArrayList<FeedModel>> {
         if (feed_data == null) {
@@ -31,6 +33,7 @@ class FeedViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun callFeedApi() {
+
         NetworkClient.NetworkObject.getNetworkInstance()
         val networkClient= NetworkClient.NetworkObject.getApiClient()
         networkClient?.callAPIExecutor()?.enqueue(object:Callback<ResponseBody>{
@@ -46,20 +49,23 @@ class FeedViewModel(application: Application) : AndroidViewModel(application) {
                         val feed_result: ArrayList<FeedModel> =
                             ArrayList<FeedModel>()
                         for (i in 0 until jsonArray.length()) {
-
-                             var  feedModel:FeedModel?=null
-                            //feedModel?.Header_title =
                             val result = jsonArray.getJSONObject(i)
-                            //feedModel?.title = ()
-                           // feedModel?.description =
-                            //feedModel?.imageHref =
-                           // if (feedModel != null) {
                                 feed_result.add(FeedModel(result.getString("imageHref"),result.getString("title"),
                                     result.getString("description"),jsonObject.getString("title")))
-                            //}
-                        databaseHandler.addFeeds(FeedModel(result.getString("imageHref"),result.getString("title"),
-                            result.getString("description"),jsonObject.getString("title")))
+
                         }
+
+                        Reservoir.putAsync(Cache_Key, feed_result, object : ReservoirPutCallback {
+                            override fun onSuccess() {
+
+                            }
+
+                            override fun onFailure(e: java.lang.Exception) {
+                                e.printStackTrace()
+
+                            }
+                        })
+
                         feed_data?.value = feed_result
                         if(feed_result.size>0) {
 
